@@ -47,6 +47,7 @@ Or install it yourself as:
 | `old_objects_limit`                       | Limit of old objects                                                                                      |
 | `oldmalloc_increase_bytes`                | Total bytes allocated to old objects                                                                      |
 | `oldmalloc_increase_bytes_limit`          | Bytes limit that will trigger garbage collection of old objects                                           |
+| `compact_count`                           | Count of all GC compactions                                                                               |
 
 ## Development
 

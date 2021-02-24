@@ -11,6 +11,7 @@ module Yabeda
       group :gc
 
       gauge :count, tags: [], comment: "Count of all GCs"
+      gauge :compact_count, tags: [], comment: "Count of all GC compactions"
       gauge :minor_gc_count, tags: [], comment: "Count of minor GCs"
       gauge :major_gc_count, tags: [], comment: "Count of major GCs"
       gauge :heap_allocated_pages, tags: [], comment: "Total number of pages allocated for the heap"
