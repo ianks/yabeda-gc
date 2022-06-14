@@ -2,9 +2,7 @@
 
 RSpec.describe Yabeda::GC do
   before do
-    Yabeda.gc.public_methods(false).each do |method_name|
-      next if method_name == :register_metric
-
+    ::GC.stat.keys.each do |method_name|
       Yabeda.gc.__send__(method_name).values.clear
     end
   end
@@ -45,12 +43,22 @@ RSpec.describe Yabeda::GC do
     )
   end
 
+  if RUBY_VERSION >= '3.0'
+    it "tracks ruby3 metrics for GC" do
+      Yabeda.collectors.each(&:call)
+
+      expect(summary).to include(
+        time: { {} => be_a(Integer) },
+        read_barrier_faults: { {} => be_a(Integer) },
+        total_moved_objects: { {} => be_a(Integer) }
+      )
+    end
+  end
+
   def summary
     result = {}
 
-    Yabeda.gc.public_methods(false).each do |method_name|
-      next if method_name == :register_metric
-
+    ::GC.stat.keys.each do |method_name|
       metric = Yabeda.gc.__send__(method_name)
       result[metric.name] = metric.values
     end

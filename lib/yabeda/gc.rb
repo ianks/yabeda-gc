@@ -11,6 +11,7 @@ module Yabeda
       group :gc
 
       gauge :count, tags: [], comment: "Count of all GCs"
+
       gauge :compact_count, tags: [], comment: "Count of all GC compactions"
       gauge :minor_gc_count, tags: [], comment: "Count of minor GCs"
       gauge :major_gc_count, tags: [], comment: "Count of major GCs"
@@ -43,6 +44,12 @@ module Yabeda
       gauge :oldmalloc_increase_bytes, tags: [], comment: "Total bytes allocated to old objects"
       gauge :oldmalloc_increase_bytes_limit, tags: [],
                                              comment: "Bytes limit that will trigger garbage collection of old objects"
+
+      if RUBY_VERSION >= '3.0'
+        gauge :time, tags: [], comment: "The total time spent in garbage collections"
+        gauge :read_barrier_faults, tags: [], comment: "The total number of times the read barrier was triggered during compaction"
+        gauge :total_moved_objects, tags: [], comment: "The total number of objects compaction has moved"
+      end
 
       collect do
         stats = ::GC.stat
