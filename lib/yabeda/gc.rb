@@ -51,6 +51,8 @@ module Yabeda
         gauge :total_moved_objects, tags: [], comment: "The total number of objects compaction has moved"
       end
 
+      gauge :time, tags: [], comment: "The total time spent in garbage collections" if RUBY_VERSION >= "3.1"
+
       collect do
         stats = ::GC.stat
 
