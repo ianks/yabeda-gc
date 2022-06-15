@@ -2,7 +2,7 @@
 
 RSpec.describe Yabeda::GC do
   before do
-    ::GC.stat.keys.each do |method_name|
+    ::GC.stat.each_key do |method_name|
       Yabeda.gc.__send__(method_name).values.clear
     end
   end
@@ -43,7 +43,7 @@ RSpec.describe Yabeda::GC do
     )
   end
 
-  if RUBY_VERSION >= '3.0'
+  if RUBY_VERSION >= "3.0"
     it "tracks ruby3 metrics for GC" do
       Yabeda.collectors.each(&:call)
 
@@ -58,7 +58,7 @@ RSpec.describe Yabeda::GC do
   def summary
     result = {}
 
-    ::GC.stat.keys.each do |method_name|
+    ::GC.stat.each_key do |method_name|
       metric = Yabeda.gc.__send__(method_name)
       result[metric.name] = metric.values
     end
