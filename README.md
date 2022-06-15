@@ -21,8 +21,9 @@ Or install it yourself as:
 ## Metrics
 
 | Metric                                    | Description                                                                                               |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | `count`                                   | Count of all GCs                                                                                          |
+| `time`                                    | The total time spent in garbage collections (ruby 3+)                                                     |
 | `minor_gc_count`                          | Count of minor GCs                                                                                        |
 | `major_gc_count`                          | Count of major GCs                                                                                        |
 | `heap_allocated_pages`                    | Total number of pages allocated for the heap                                                              |
@@ -48,6 +49,8 @@ Or install it yourself as:
 | `oldmalloc_increase_bytes`                | Total bytes allocated to old objects                                                                      |
 | `oldmalloc_increase_bytes_limit`          | Bytes limit that will trigger garbage collection of old objects                                           |
 | `compact_count`                           | Count of all GC compactions                                                                               |
+| `read_barrier_faults`                     | The total number of times the read barrier was triggered during compaction (ruby 3+)                      |
+| `total_moved_objects`                     | The total number of objects compaction has moved (ruby 3+)                                                |
 
 ## Development
 
