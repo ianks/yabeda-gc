@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "yabeda"
+require "yabeda/gc/version"
 
 module Yabeda
   # Yabeda plugin to capture important Ruby GC metrics
