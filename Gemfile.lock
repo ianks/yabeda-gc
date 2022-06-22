@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yabeda-gc (0.2.0)
+    yabeda-gc (0.2.1)
       yabeda (~> 0.6)
 
 GEM
