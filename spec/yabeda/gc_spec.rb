@@ -9,7 +9,7 @@ RSpec.describe Yabeda::GC do
 
   it "tracks metrics for GC" do
     expect { subject }.to(
-      (update_yabeda_gauge(Yabeda.gc.count).with(be_a(Integer)))
+      update_yabeda_gauge(Yabeda.gc.count).with(be_a(Integer))
       .and(update_yabeda_gauge(Yabeda.gc.heap_allocatable_pages).with(be_a(Integer)))
       .and(update_yabeda_gauge(Yabeda.gc.heap_allocated_pages).with(be_a(Integer)))
       .and(update_yabeda_gauge(Yabeda.gc.heap_available_slots).with(be_a(Integer)))
@@ -40,7 +40,7 @@ RSpec.describe Yabeda::GC do
   if RUBY_VERSION >= "3.0"
     it "tracks ruby3 metrics for GC" do
       expect { subject }.to(
-        (update_yabeda_gauge(Yabeda.gc.read_barrier_faults).with(be_a(Integer)))
+        update_yabeda_gauge(Yabeda.gc.read_barrier_faults).with(be_a(Integer))
           .and(update_yabeda_gauge(Yabeda.gc.total_moved_objects).with(be_a(Integer)))
       )
     end
