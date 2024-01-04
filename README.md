@@ -51,6 +51,8 @@ Or install it yourself as:
 | `compact_count`                           | Count of all GC compactions                                                                               |
 | `read_barrier_faults`                     | The total number of times the read barrier was triggered during compaction (ruby 3+)                      |
 | `total_moved_objects`                     | The total number of objects compaction has moved (ruby 3+)                                                |
+| `marking_time`                            | The total time spent in marking phase (ruby 3.3+)                                                         |
+| `sweeping_time`                           | The total time spent in sweeping phase (ruby 3.3+)                                                        |
 
 ## Development
 
