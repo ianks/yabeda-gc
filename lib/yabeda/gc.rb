@@ -57,7 +57,9 @@ module Yabeda
         stats = ::GC.stat
 
         stats.each do |stat_name, value|
-          __send__("gc_#{stat_name}").set(EMPTY_HASH, value)
+          next unless ::Yabeda.gc.respond_to?(stat_name)
+
+          ::Yabeda.gc.__send__(stat_name).set(EMPTY_HASH, value)
         end
       end
     end
