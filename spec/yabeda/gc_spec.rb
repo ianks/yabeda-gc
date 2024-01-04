@@ -51,4 +51,13 @@ RSpec.describe Yabeda::GC do
       expect { subject }.to update_yabeda_gauge(Yabeda.gc.time).with(be_a(Integer))
     end
   end
+
+  if RUBY_VERSION >= "3.3"
+    it "tracks Ruby 3.3 time metrics for GC" do
+      expect { subject }.to(
+        update_yabeda_gauge(Yabeda.gc.marking_time).with(be_a(Integer))
+          .and(update_yabeda_gauge(Yabeda.gc.sweeping_time).with(be_a(Integer)))
+      )
+    end
+  end
 end

@@ -53,6 +53,11 @@ module Yabeda
 
       gauge :time, tags: [], comment: "The total time spent in garbage collections" if RUBY_VERSION >= "3.1"
 
+      if RUBY_VERSION >= "3.3"
+        gauge :marking_time, tags: [], comment: "Time spent in the marking phase"
+        gauge :sweeping_time, tags: [], comment: "Time spent in the sweeping phase"
+      end
+
       collect do
         stats = ::GC.stat
 
