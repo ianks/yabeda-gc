@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.3.0] - 2024-01-04
+
 ### Added
 
 - Ruby 3.3 metrics: `marking_time` and `sweeping_time`. [@aroop] in [#5](https://github.com/ianks/yabeda-gc/pull/5)
