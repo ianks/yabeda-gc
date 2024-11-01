@@ -7,7 +7,7 @@ RSpec.describe Yabeda::GC do
 
   subject { Yabeda.collect! }
 
-  ::GC.stat.each_key do |stat_name|
+  GC.stat.each_key do |stat_name|
     it "tracks #{stat_name}" do
       expect { subject }.to(update_yabeda_gauge(Yabeda.gc.__send__(stat_name)).with(be_a(Integer)))
     end

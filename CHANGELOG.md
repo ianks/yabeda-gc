@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [0.4.0] - 2024-11-01
+
+### Added
+
+- Automatic GC metric registration for future Ruby versions. [@jeremy] in [#6](https://github.com/ianks/yabeda-gc/pull/6)
+
 ## [0.3.0] - 2024-01-04
 
 ### Added
@@ -32,3 +38,4 @@
 [@tarapon]: https://github.com/tarapon "Ivan Tarapon"
 [@Envek]: https://github.com/Envek "Andrey Novikov"
 [@aroop]: https://github.com/aroop "Ajay Guthikonda"
+[@jeremy]: https://github.com/jeremy "Jeremy Daer"
